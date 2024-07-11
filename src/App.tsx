@@ -7,7 +7,22 @@ import UserForm from './components/UserForm';
 import { Button, Dialog, ThemeProvider, Typography } from '@mui/material';
 import Header from './components/layouts/Header';
 import Container from '@mui/material/Container';
-import theme from './configs/colors.jsx';
+import { createTheme } from '@mui/material/styles';
+
+const theme = createTheme({
+  palette: {
+    primary: {
+      main: '#141417',
+    },
+    secondary: {
+      main: '#e9d7ff',
+    },
+  },
+  typography: {
+    fontFamily: 'Inter, Arial, sans-serif',
+  },
+});
+
 const App = () => {
   const dispatch = useDispatch();
   const users = useSelector((state: RootState) => state.users.users);
@@ -16,7 +31,9 @@ const App = () => {
   useEffect(() => {
     const fetchUsers = async () => {
       try {
-        const response = await fetch('https://jsonplaceholder.typicode.com/users');
+        const response = await fetch(
+          'https://jsonplaceholder.typicode.com/users',
+        );
         const data = await response.json();
         dispatch(setUsers(data));
       } catch (error) {
