@@ -1,35 +1,61 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
-
-function App() {
-  const [count, setCount] = useState(0)
+import React, { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { RootState } from './redux/store';
+import { setUsers } from './redux/userSlice';
+import UserList from './components/UserList';
+import UserForm from './components/UserForm';
+import { Button, Dialog, ThemeProvider, Typography } from '@mui/material';
+import Header from './components/layouts/Header';
+import Container from '@mui/material/Container';
+import theme from './configs/colors.jsx';
+const App = () => {
+  const dispatch = useDispatch();
+  const users = useSelector((state: RootState) => state.users.users);
+  const [isFormOpen, setFormOpen] = useState(false);
+  // const theme = useTheme();
+  useEffect(() => {
+    const fetchUsers = async () => {
+      try {
+        const response = await fetch('https://jsonplaceholder.typicode.com/users');
+        const data = await response.json();
+        dispatch(setUsers(data));
+      } catch (error) {
+        console.error('Failed to fetch users:', error);
+      }
+    };
+    fetchUsers();
+  }, [dispatch]);
 
   return (
-    <>
+    <ThemeProvider theme={theme}>
       <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
-}
+        <Header />
+        <Container maxWidth="xl">
+          <div className="title-page">
+            <Typography
+              mb={3}
+              mt={3}
+              sx={{ typography: { sm: 'h3', xs: 'h5' } }}
+            >
+              User Management
+            </Typography>
+            <Button
+              onClick={() => setFormOpen(true)}
+              variant="contained"
+              color="secondary"
+            >
+              Add User
+            </Button>
+          </div>
 
-export default App
+          <UserList users={users} />
+          <Dialog open={isFormOpen} onClose={() => setFormOpen(false)}>
+            <UserForm onClose={() => setFormOpen(false)} />
+          </Dialog>
+        </Container>
+      </div>
+    </ThemeProvider>
+  );
+};
+
+export default App;

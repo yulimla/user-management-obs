@@ -1,30 +1,76 @@
-# React + TypeScript + Vite
+# User Management Application
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A simple user management application built with React, TypeScript, Redux, and Material-UI. This application allows users to view, add, edit, and delete user profiles. It includes a modal/popup component for displaying user details and features a responsive design. I hope a have more time to make this design more beautyfull. 
 
-Currently, two official plugins are available:
+## Table of Contents
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- [Features](#features)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Running Tests](#running-tests)
+- [Folder Structure](#folder-structure)
+- [Technologies Used](#technologies-used)
+- [Contributing](#contributing)
+- [License](#license)
 
-## Expanding the ESLint configuration
+## Features
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+- View a list of users
+- Add new users
+- Edit existing users
+- Delete users
+- View user details in a modal popup
+- Responsive design
 
-- Configure the top-level `parserOptions` property like this:
+## Technologies Used
+- React
+- TypeScript
+- Redux
+- Material-UI (MUI)
+- Jest & React Testing Library
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
-```
+## Installation
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/your-username/user-management-app.git
+   cd user-management-app
+2. Install dependencies:
+   npm install
+3. Start the development server:
+   npm run dev
+4. Running Tests
+   npm test
+
+Folder Structure
+
+user-management-app/
+├── public/
+│   ├── favicon.ico
+│   └── ... (other static assets)
+├── src/
+│   ├── components/
+│   │   ├── UserDetails.tsx
+│   │   └── UserList.tsx
+│   ├── pages/
+│   │   ├── index.tsx
+│   │   └── ... (other pages)
+│   ├── redux/
+│   │   ├── store.ts
+│   │   └── userSlice.ts
+│   ├── types/
+│   │   └── index.ts
+│   └── tests/
+│       ├── UserDetails.test.tsx
+│       └── UserList.test.tsx
+├── styles/
+│   └── globals.css
+├── .eslintrc.json
+├── .gitignore
+├── README.md
+├── next.config.js
+├── package.json
+├── tsconfig.json
+└── ... (other configuration files)
+
+

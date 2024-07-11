@@ -1,0 +1,49 @@
+/* Import font for MUI */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+
+
+/* Global styles */
+body {
+  margin: 0;
+  font-family: 'Inter', 'Helvetica', 'Arial', sans-serif !important;
+  background-color: #f8f8f8;
+    color: #222222;
+}
+
+h1,h2,h3,h4,h5,h6,p{
+  color:#222222;
+}
+
+
+.logo{
+  filter: contrast(0%) brightness(2);
+}
+
+.title-page{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.card {
+    background: #ffffff;
+    border-radius: 15px !important;
+    box-shadow: 7px 10px 0 #4e4e51;
+    border-color: #141417 !important;
+}
+
+img.MuiCardMedia-root.MuiCardMedia-media.MuiCardMedia-img.css-o69gx8-MuiCardMedia-root {
+    width: 85px  !important;
+    height: 85px  !important;
+    border-radius: 15px  !important;
+    background-position: center !important;
+}
+
+
+.MuiCardContent-root.css-46bh2p-MuiCardContent-root {
+    display: flex;
+    gap: 20px;
+    @media (max-width:560px) {
+          display: block;
+    }
+}
