@@ -5,13 +5,8 @@ A simple user management application built with React, TypeScript, Redux, and Ma
 ## Table of Contents
 
 - [Features](#features)
-- [Installation](#installation)
-- [Usage](#usage)
-- [Running Tests](#running-tests)
-- [Folder Structure](#folder-structure)
 - [Technologies Used](#technologies-used)
-- [Contributing](#contributing)
-- [License](#license)
+- [Installation](#installation)
 
 ## Features
 
@@ -41,36 +36,5 @@ A simple user management application built with React, TypeScript, Redux, and Ma
    npm run dev
 4. Running Tests
    npm test
-
-Folder Structure
-
-user-management-app/
-├── public/
-│   ├── favicon.ico
-│   └── ... (other static assets)
-├── src/
-│   ├── components/
-│   │   ├── UserDetails.tsx
-│   │   └── UserList.tsx
-│   ├── pages/
-│   │   ├── index.tsx
-│   │   └── ... (other pages)
-│   ├── redux/
-│   │   ├── store.ts
-│   │   └── userSlice.ts
-│   ├── types/
-│   │   └── index.ts
-│   └── tests/
-│       ├── UserDetails.test.tsx
-│       └── UserList.test.tsx
-├── styles/
-│   └── globals.css
-├── .eslintrc.json
-├── .gitignore
-├── README.md
-├── next.config.js
-├── package.json
-├── tsconfig.json
-└── ... (other configuration files)
 
 
